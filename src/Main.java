@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
     public static void CheckRoman(String input) {
-        ArrayList<Character> symbols = new ArrayList<Character>();
+        ArrayList<Character> symbols = new ArrayList<>();
         symbols.add('I');
         symbols.add('V');
         symbols.add('X');
@@ -33,7 +34,7 @@ public class Main {
 
         String inputString = String.valueOf(input);
         int step = 0;
-        ArrayList<String> characters = new ArrayList<String>(Arrays.asList("I", "V", "X", "L", "C", "D", "", "", ""));
+        ArrayList<String> characters = new ArrayList<>(Arrays.asList("I", "V", "X", "L", "C", "D", "", "", ""));
 
         for (int i = inputString.length() - 1; i >= 0; i--)
         {
@@ -61,8 +62,8 @@ public class Main {
         return output.toString();
     }
     public static int ConvertRoman(String x) {
-        ArrayList<String> characters = new ArrayList<String>(Arrays.asList("I", "V", "X", "L", "C", "D", "M", "", ""));
-        ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(1, 5, 10, 50, 100, 500, 1000, 0, 0));
+        ArrayList<String> characters = new ArrayList<>(Arrays.asList("I", "V", "X", "L", "C", "D", "M", "", ""));
+        ArrayList<Integer> nums = new ArrayList<>(Arrays.asList(1, 5, 10, 50, 100, 500, 1000, 0, 0));
 
         int sum = 0;
         int step = 0;
@@ -71,7 +72,7 @@ public class Main {
         {
             String current = String.valueOf(x.charAt(step));
 
-            String next = "";
+            String next;
             if (step < n - 1)
             {
 
@@ -104,15 +105,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String input = "1000";
+        Scanner userIn = new Scanner(System.in);
+        System.out.println("Wprowadź liczbę do przeliczenia:");
+        String input = userIn.nextLine();
         try {
             int integer = Integer.parseInt(input);
-            if (integer >= 0) {System.out.println(ConvertDecimal(input));}
-            else {System.out.println("Liczba nie jest dodatnia");}
+            if ((integer >= 1)&& (integer <= 3999)) {System.out.println(ConvertDecimal(input));}
+            else {System.out.println("Liczba z poza zakresu liczb rzymskich (1 do 3999)");}
 
         }
         catch (NumberFormatException e) {
-            CheckRoman(input);
+            CheckRoman(input); // TODO: add support for values above 1000
         }
 
 
