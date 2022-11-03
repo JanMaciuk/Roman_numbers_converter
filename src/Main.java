@@ -6,7 +6,6 @@ public class Main {
     /*
     Mikołaj Kubś, Jan Maciuk
      */
-
     public static boolean CheckRoman(String input) {
         ArrayList<Character> symbols = new ArrayList<>();
         symbols.add('I');
@@ -79,7 +78,7 @@ public class Main {
             {
                 nextCharacter = String.valueOf(x.charAt(step + 1));
 
-                // sprawdzamy, czy następny znak jest większy w systemie rzymskim niż aktualny: jeśli tak, to znaczy że aktualny znak trzeba odjąć od następnego
+                // sprawdzamy, czy następny znak jest większy w systemie rzymskim niż aktualny: jeśli tak, to znaczy, że aktualny znak trzeba odjąć od następnego
                 if (nextCharacter.equals(characters.get(characters.indexOf(currentCharacter) + 2)) ||
                         nextCharacter.equals(characters.get(characters.indexOf(currentCharacter) + 1)))
                 {
